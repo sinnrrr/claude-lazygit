@@ -41,7 +41,9 @@ const open = async ($: EngineInterface, args: string) => {
   const copy = await $.vcs.detect({ path })
   if (!copy) return `Not a git repo: ${path}. Name one with /lazygit <path>.`
   await run($, ['lazygit', '--version'])
-  const pane = await run($, ['wezterm', 'cli', 'split-pane', '--cwd', copy.root, '--', 'lazygit'])
+  const title = `Claude → lazygit: ${copy.root.split('/').at(-1)}`
+  const start = ['sh', '-c', 'printf "\\033]2;%s\\007" "$1" && exec lazygit', 'sh', title]
+  const pane = await run($, ['wezterm', 'cli', 'split-pane', '--cwd', copy.root, '--', ...start])
   return run($, ['wezterm', 'cli', 'zoom-pane', '--zoom', '--pane-id', pane]).then(
     () => undefined,
     error => `LazyGit opened but is not full size. ${error.message}`,

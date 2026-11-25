@@ -1,6 +1,6 @@
 {
   "name": "lazygit",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Opens LazyGit in the same WezTerm tab as Claude Code, in the repo Claude has been changing",
   "author": { "name": "sinnrrr" },
   "repository": "https://github.com/sinnrrr/claude-lazygit",

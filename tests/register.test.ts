@@ -69,7 +69,7 @@ const stub = (on: On, setup: Setup = {}) => {
 
 const opened = (root: string) => [
   'lazygit --version',
-  `wezterm cli split-pane --cwd ${root} -- lazygit`,
+  `wezterm cli split-pane --cwd ${root} -- sh -c printf "\\033]2;%s\\007" "$1" && exec lazygit sh Claude → lazygit: ${root.split('/').at(-1)}`,
   'wezterm cli zoom-pane --zoom --pane-id 7',
 ]
 
