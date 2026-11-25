@@ -1,0 +1,6 @@
+{
+  "name": "claude-lazygit",
+  "description": "LazyGit in the same WezTerm tab as Claude Code",
+  "owner": { "name": "sinnrrr" },
+  "plugins": [{ "name": "lazygit", "source": "./" }]
+}
